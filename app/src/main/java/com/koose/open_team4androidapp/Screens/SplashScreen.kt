@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.WindowManager
-import com.koose.open_team4androidapp.MainActivity
+import com.koose.open_team4androidapp.OnboardingScreen
 import com.koose.open_team4androidapp.R
 
 @Suppress("DEPRECATION")
@@ -24,7 +24,7 @@ class SplashScreen : AppCompatActivity() {
 
         // Handler().postDelayed({
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, OnboardingScreen::class.java)
             startActivity(intent)
             finish()
         }, 3000) // 3000 is the delayed time in milliseconds.

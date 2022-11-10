@@ -1,3 +1,35 @@
 <resources>
-    <string name="app_name">Open-Team4 AndroidApp</string>
+    <string name="app_name">Open-Team4 Trotro</string>
+
+    <!-- Strings for On Boarding Screen -->
+
+    <!--Titles-->
+
+    <string name="first_slide_title">Know Your Trotro Fares</string>
+
+    <string name="second_slide_title">Report On Missing Items?</string>
+
+    <string name="third_slide_title">Add Missing Bus Stop</string>
+
+    <string name="fourth_slide_title">DigiLigc Smart Logistics Winner Eu Funded Project</string>
+
+
+    <!--Descriptions-->
+
+    <string name="first_slide_desc">You can search any place nearby or with-in the specified city. We will display specific or all related trotro Fares to match your bus stops. </string>
+
+    <string name="second_slide_desc">We provide almost all the numbers of all stations and landmarks registered with us. You can perform bookings as well.</string>
+
+    <string name="third_slide_desc">If you have a station or have fleet of Minivans a part of our growing industry with (EU, GPRTU, AMA, Google) then add your profile by follwing simple steps.</string>
+
+    <string name="fourth_slide_desc">We will handle everything for you. As you have the app in your pocket then you don\'t have to worry about anything.  </string>
+
+
+    <!--Buttons-->
+
+    <string name="skip_btn">Skip</string>
+
+    <string name="next_btn">Next</string>
+
+    <string name="let_get_started">Lets Get Started</string>
 </resources>
