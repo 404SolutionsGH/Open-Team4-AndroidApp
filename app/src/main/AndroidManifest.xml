@@ -27,7 +27,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".OnboardingScreen"
+            android:name=".Screens.OnboardingScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
