@@ -1,4 +1,4 @@
-package com.koose.open_team4androidapp.Screens
+package com.koose.open_team4androidapp.screens
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.WindowManager
-import com.koose.open_team4androidapp.Screens.OnboardingScreen
 import com.koose.open_team4androidapp.R
 
 @Suppress("DEPRECATION")
