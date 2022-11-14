@@ -19,6 +19,7 @@
 
     <TextView
         android:id="@+id/slider_heading"
+        android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="174dp"
@@ -28,7 +29,7 @@
         android:fontFamily="@font/brandon_grotesque_black"
         android:gravity="center"
         android:text="TextView"
-        android:textSize="36sp"
+        android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.471"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,8 +46,9 @@
         android:layout_marginRight="176dp"
         android:gravity="center"
         android:padding="10dp"
+        android:textColor="@color/info"
         android:text="@string/first_slide_desc"
-        android:textSize="14sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/slider_heading" />
