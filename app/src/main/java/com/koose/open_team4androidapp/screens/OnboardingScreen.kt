@@ -96,7 +96,7 @@ class OnboardingScreen : AppCompatActivity() {
     }
 
     private fun navigateToHomeActivity() {
-        startActivity(Intent(applicationContext, HomeActivity::class.java))
+        startActivity(Intent(applicationContext, AuthActivity::class.java))
         finish()
     }
 

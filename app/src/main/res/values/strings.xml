@@ -32,4 +32,14 @@
     <string name="next_btn">Next</string>
 
     <string name="let_get_started">Lets Get Started</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login">Login</string>
+    <string name="trotrolive">TrotroLive</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="forget_password">Forget Password</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="or_login_with">or Login With</string>
 </resources>
