@@ -42,4 +42,15 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="or_login_with">or Login With</string>
+    <string name="join_the_community">Join The Better Trotro</string>
+    <string name="profile_picture">Profile picture</string>
+    <string name="set_profile_image">set Profile Image</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="add_startup_optional">StartUp</string>
+    <string name="register">Register</string>
+    <string name="already_have_an_account_login">Already Have Account?</string>
+    <string name="register_later">later</string>
 </resources>
