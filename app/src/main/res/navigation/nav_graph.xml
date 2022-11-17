@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_mainFeed"
+            app:destination="@id/mainFeed" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -22,5 +25,13 @@
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_mainFeed"
+            app:destination="@id/mainFeed" />
     </fragment>
+    <fragment
+        android:id="@+id/mainFeed"
+        android:name="com.koose.open_team4androidapp.MainFeed"
+        android:label="fragment_main_feed"
+        tools:layout="@layout/fragment_main_feed" />
 </navigation>
