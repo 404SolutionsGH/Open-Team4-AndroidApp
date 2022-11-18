@@ -24,6 +24,7 @@
 
     <string name="fourth_slide_desc">We will handle everything for you. As you have the app in your pocket then you don\'t have to worry about anything.  </string>
 
+    <string name="forgot_password_title_description"> Enter your username and email- address, We\'ll send you an email to reset the password</string>
 
     <!--Buttons-->
 
@@ -64,4 +65,9 @@
     <string name="lb1_forgot_password">forgot password</string>
     <string name="btn_lb1_login">LOGIN</string>
     <string name="don_t_have_an_accpomt">Don\'t have an account ?</string>
+    <string name="err_msg_enter_password">enter your password please!</string>
+    <string name="title_forgot_password">forgot password</string>
+    <string name="btn_lbl_sumbit">Sumbit</string>
+    <string name="email_sent_success">email sent</string>
+    <string name="register_success">success</string>
 </resources>

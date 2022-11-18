@@ -1,6 +1,6 @@
 package com.koose.open_team4androidapp.models
 
-class User {
+class User(uid: String, text: String, trim: Any, trim1: String) {
 
     val id: String = " "
     val firstName: String = " "

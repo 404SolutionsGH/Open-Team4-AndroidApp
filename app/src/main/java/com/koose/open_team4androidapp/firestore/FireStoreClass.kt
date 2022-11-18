@@ -1,19 +1,16 @@
-package com.koose.open_team4androidapp.Firestore
+package com.koose.open_team4androidapp.firestore
 
 import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.UserInfo
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.koose.open_team4androidapp.models.User
-import com.koose.open_team4androidapp.screens.BaseActivity
 import com.koose.open_team4androidapp.screens.LoginActivity
 import com.koose.open_team4androidapp.screens.RegisterActivity
 import com.koose.open_team4androidapp.utils.Constants
-import io.grpc.InternalChannelz.id
 
 class FireStoreClass {
 
