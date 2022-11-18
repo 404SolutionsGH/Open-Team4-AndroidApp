@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.navigation.Navigation
 import com.koose.open_team4androidapp.R
 
-class AuthActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)

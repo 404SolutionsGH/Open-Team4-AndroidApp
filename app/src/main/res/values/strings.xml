@@ -53,4 +53,15 @@
     <string name="register">Register</string>
     <string name="already_have_an_account_login">Already Have Account?</string>
     <string name="register_later">later</string>
+    <string name="please_wait">Please Wait</string>
+    <string name="i_agree_to_the_terms_and_condition">"i agrees to terms and conditions "</string>
+    <string name="err_msg_enter_first_name">Enter Your First Name</string>
+    <string name="err_msg_enter_last_name">Enter Your Last Name</string>
+    <string name="err_msg_enter_email">Enter Your Email</string>
+    <string name="content_description">content description</string>
+    <string name="et_hint_email_id">Email ID</string>
+    <string name="et_hint_password">password</string>
+    <string name="lb1_forgot_password">forgot password</string>
+    <string name="btn_lb1_login">LOGIN</string>
+    <string name="don_t_have_an_accpomt">Don\'t have an account ?</string>
 </resources>

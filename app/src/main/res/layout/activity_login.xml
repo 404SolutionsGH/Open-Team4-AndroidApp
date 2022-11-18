@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".screens.LoginActivity">
+
+    <FrameLayout
+        android:id="@+id/fi_header_image"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/auth_header_image_height"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/content_description"
+            android:scaleType="fitXY"
+            android:src="@drawable/trotroAuth"/>
+
+        <ImageView
+            android:layout_width="@dimen/auth_logo_width_size"
+            android:layout_height="@dimen/auth_logo_height_size"
+            android:layout_gravity="center"
+            android:contentDescription="@string/app_name"
+            android:scaleType="fitCenter"
+            android:src="@drawable/trotro" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:text="@string/login"
+        android:textColor="@color/Primary"
+        android:textSize="@dimen/title_textSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fi_header_image"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_email"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="16dp"
+        android:hint="@string/et_hint_email_id"
+        android:textColorHint="@color/info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title">
+
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:padding="@dimen/et_padding"
+            android:textColor="@color/Primary"
+            android:textSize="@dimen/et_textSize"
+            tools:text = "KooseTheBlogger@gmail.com"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_password"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:hint="@string/et_hint_password"
+        android:textColorHint="@color/info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_email">
+
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:padding="@dimen/et_padding"
+            android:textColor="@color/Primary"
+            android:textSize="@dimen/et_textSize"
+            tools:text="Password"
+            android:imeOptions="actionSend"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tv_forgot_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:foreground="?attr/selectableItemBackground"
+        android:padding="@dimen/clickable_text_view_padding"
+        android:text="@string/lb1_forgot_password"
+        android:textColor="@color/info"
+        android:textSize="@dimen/forgot_password_textSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_password"
+        />
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="16dp"
+        android:layout_marginTop= "30dp"
+        android:layout_marginEnd="16dp"
+
+        android:background="@drawable/buttton_background"
+        android:foreground="?attr/selectableItemBackground"
+        android:gravity="center"
+        android:paddingTop="@dimen/btn_padding"
+        android:paddingBottom="@dimen/btn_padding"
+        android:text="@string/btn_lb1_login"
+        android:textSize="@dimen/btn_textSize"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_forgot_password"/>
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_login">
+
+
+        <TextView
+            android:id="@+id/tv_don_t_have_an_account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:padding="@dimen/clickable_text_view_padding"
+            android:text="@string/don_t_have_an_accpomt"
+            android:textColor="@color/info"
+            android:textSize="@dimen/lb1_text_view_textSize" />
+
+
+        <TextView
+            android:id="@+id/tv_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:foreground="?attr/selectableItemBackground"
+            android:padding="@dimen/clickable_text_view_padding"
+            android:text="@string/register"
+            android:textColor="@color/info"
+            android:textSize="@dimen/lb1_text_view_textSize" />
+    </LinearLayout>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,7 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterFragment">
+    tools:context=".screens.RegisterActivity">
+
+
+    <!--toolbar-->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_register_activity"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+
+    </androidx.appcompat.widget.Toolbar>
+
 
     <!-- ispace logo-->
     <ImageView
@@ -18,19 +33,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
-
+    <!--skip signUp to dash-->
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:fillViewport="true"
-        android:scrollbars="none"
-        android:orientation="vertical"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
+        android:fillViewport="true"
+        android:orientation="vertical"
+        android:scrollbars="none"
         app:layout_constraintBottom_toTopOf="@+id/skipRegisterTV"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logoIV">
+        app:layout_constraintTop_toBottomOf="@+id/logoIV"
+        app:layout_constraintVertical_bias="0.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -71,7 +88,7 @@
                         android:id="@+id/profilePicIV"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:contentDescription="@string/profile_picture"/>
+                        android:contentDescription="@string/profile_picture" />
 
                     <ImageView
                         android:id="@+id/addProfilePicIV"
@@ -157,6 +174,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/lastNameTIL">
 
+
                 <EditText
                     android:id="@+id/emailET_"
                     android:layout_width="match_parent"
@@ -164,7 +182,11 @@
                     android:fontFamily="@font/inter"
                     android:inputType="textEmailAddress"
                     android:paddingBottom="5dp"
-                    android:textSize="17sp" />
+                    android:textSize="17sp"
+                    tools:layout_editor_absoluteX="161dp"
+                    tools:layout_editor_absoluteY="150dp" />
+
+
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -242,43 +264,39 @@
                     android:textSize="17sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
-                android:id="@+id/addStartupTV"
+            <LinearLayout
+                android:id="@+id/ll_terms_and_conditions"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:fontFamily="@font/inter"
-                android:text="@string/add_startup_optional"
-                android:textColor="@color/Primary"
-                android:textFontWeight="600"
-                android:textSize="13sp"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="@+id/confirmPasswordTIL_"
-                app:layout_constraintTop_toBottomOf="@+id/confirmPasswordTIL_"
-                tools:targetApi="p" />
+                android:layout_marginTop="25dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/confirmPasswordTIL_">
 
-            <ListView
-                android:id="@+id/startupLV"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="30dp"
-                android:layout_marginTop="10dp"
-                app:layout_constraintTop_toBottomOf="@+id/addStartupTV"
-                tools:listitem="@layout/startup_item" />
+
+            </LinearLayout>
+
 
             <!--login button-->
-            <com.google.android.material.button.MaterialButton
+
+            <!--signUp prompt-->
+            <Button
                 android:id="@+id/signUpBn_"
                 style="@style/ButtonText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="30dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="30dp"
                 android:text="@string/register"
                 app:cornerRadius="10dp"
-                app:layout_constraintTop_toBottomOf="@+id/startupLV" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_terms_condition" />
 
-            <!--signUp prompt-->
             <TextView
                 android:id="@+id/loginPromptTV"
                 android:layout_width="wrap_content"
@@ -295,11 +313,33 @@
                 app:layout_constraintTop_toBottomOf="@+id/signUpBn_"
                 tools:targetApi="p" />
 
+            <EditText
+                android:id="@+id/tv_terms_condition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="65dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/i_agree_to_the_terms_and_condition"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/txt_terms_and_condition_textSize"
+                app:layout_constraintEnd_toEndOf="@+id/confirmPasswordTIL_"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/passwordTIL_"
+                app:layout_constraintTop_toBottomOf="@+id/confirmPasswordTIL_" />
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/appCompatCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toStartOf="@+id/tv_terms_condition"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/confirmPasswordTIL_"
+                tools:checked="false" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
 
-    <!--skip signUp to dash-->
     <TextView
         android:id="@+id/skipRegisterTV"
         style="@style/PromptText"
