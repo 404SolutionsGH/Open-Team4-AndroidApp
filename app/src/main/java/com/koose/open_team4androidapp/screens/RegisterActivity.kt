@@ -89,28 +89,29 @@ class RegisterActivity : BaseActivity() {
 
             //Create an instance and create a register a user with email and password
             FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener {
-                    OnCompleteListener<AuthResult>{ task ->
+                .addOnCompleteListener(
+                    OnCompleteListener<AuthResult> {task ->
 
                         //if the register is successful
                         if (task.isSuccessful){
+
+
                             //firebase registered user
                             val firebaseUser: FirebaseUser = task.result!!.user!!
+
 
                             val user = User(
                                 firebaseUser.uid,
                                 binding.firstNameET.text.toString().trim{it <= ' '},
                                 binding.lastNameET.text.toString().trim{it <= ' '},
-                                binding.emailET.text.toString().trim{it <= ' '},
+                                binding.emailET.text.toString().trim{it <= ' '}
                             )
 
                             FireStoreClass().registerUser(this, user)
 
                             //Send Them to Sign In to Login Again ! Beautiful
-                            FirebaseAuth.getInstance().signOut()
-                            finish()
-
-
+//                            FirebaseAuth.getInstance().signOut()
+//                            finish()
                         }else{
                             hideProgressDialog()
                             //if the registration is not successful then show error message
@@ -118,8 +119,7 @@ class RegisterActivity : BaseActivity() {
                             showErrorSnackBar(task.exception!!.message.toString(), true)
                         }
                     }
-
-                }
+                )
         }
     }
 
