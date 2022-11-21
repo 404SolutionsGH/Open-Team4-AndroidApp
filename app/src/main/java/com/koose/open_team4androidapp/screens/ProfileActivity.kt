@@ -27,11 +27,11 @@ class ProfileActivity : BaseActivity() {
 
         //handle click home
         binding.homebn.setOnClickListener{
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, HomeActivity::class.java))
         }
 
         binding.logo.setOnClickListener{
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, HomeActivity::class.java))
         }
     }
 

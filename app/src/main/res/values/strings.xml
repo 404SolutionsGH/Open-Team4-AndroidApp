@@ -25,7 +25,9 @@
     <string name="fourth_slide_desc">We will handle everything for you. As you have the app in your pocket then you don\'t have to worry about anything.  </string>
 
     <string name="forgot_password_title_description"> Enter your username and email- address, We\'ll send you an email to reset the password</string>
-
+    <string name="openDrawer">Open</string>
+    <string name="closeDrawer">Close</string>
+    <string name="_0">0</string>
     <!--Buttons-->
 
     <string name="skip_btn">Skip</string>
@@ -71,4 +73,48 @@
     <string name="email_sent_success">email sent</string>
     <string name="register_success">success</string>
     <string name="hey_shuttle_buddy">Hey TrotroLive buddy</string>
+    <string name="know_your_trotro_fare">Know Your Trotro Fare</string>
+    <string name="pregnant">pregnant</string>
+    <string name="disabled">disabled</string>
+    <string name="textview">TextView</string>
+
+    <string name="shuttledriveDescription">Transportation Backed With Data <b>Trotro digitalizing </b> platform for trips within and across countries in <b>west africa</b></string>
+
+
+    <string-array name="seats">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+    </string-array>
+
+    <string-array name="care">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
 </resources>

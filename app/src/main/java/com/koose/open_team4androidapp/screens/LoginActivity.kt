@@ -3,15 +3,12 @@ package com.koose.open_team4androidapp.screens
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import android.util.Patterns
-import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 
 import com.koose.open_team4androidapp.databinding.ActivityLoginBinding
-import com.koose.open_team4androidapp.models.User
 
 @Suppress("DEPRECATION")
 class LoginActivity : BaseActivity(){
@@ -80,7 +77,7 @@ class LoginActivity : BaseActivity(){
                 val firebaseUser = firebaseAuth.currentUser
                 val email = firebaseUser!!.email
                 Toast.makeText(this, "Logged in as $email", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this, MainActivity::class.java))
+                startActivity(Intent(this, HomeActivity::class.java))
                 finish()
             }
             .addOnFailureListener{ e->
