@@ -1,7 +1,9 @@
 package com.koose.open_team4androidapp.screens
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Patterns
 import android.view.WindowManager
 import android.widget.Toast
 import com.google.android.gms.tasks.OnCompleteListener
@@ -10,13 +12,15 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.koose.open_team4androidapp.R
 import com.koose.open_team4androidapp.databinding.ActivityRegisterBinding
-import com.koose.open_team4androidapp.firestore.FireStoreClass
-import com.koose.open_team4androidapp.models.User
+
 
 @Suppress("DEPRECATION")
 class RegisterActivity : BaseActivity() {
 
-
+    //firebaseAuth
+    private lateinit var firebaseAuth: FirebaseAuth
+    private var email = ""
+    private var password = ""
 
     private lateinit var binding: ActivityRegisterBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,106 +36,63 @@ class RegisterActivity : BaseActivity() {
 //        setupActionBar()
 
         binding.loginPromptTV.setOnClickListener{
-            onBackPressed()
-        }
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)        }
         binding.signUpBn.setOnClickListener {
-            registerUser()
+            validateData()
         }
 
     }
 
-//    private fun setupActionBar() {
-//        setSupportActionBar(binding.toolbarRegisterActivity)
-//
-//        val  actionBar = supportActionBar
-//        if(actionBar != null){
-//            actionBar.setDisplayHomeAsUpEnabled(true)
-//            actionBar.setHomeAsUpIndicator(R.drawable.ic_backpress)
-//        }
-//
-//        binding.toolbarRegisterActivity.setNavigationOnClickListener { onBackPressed() }
-//    }
-
-    /**
-     * A function to validate the entries of a new user*/
-
-    private fun validateRegisterDetails():Boolean{
-        return when{
-            TextUtils.isEmpty(binding.firstNameET.text.toString().trim{it <= ' '})->{
-                showErrorSnackBar(resources.getString(R.string.err_msg_enter_first_name), true)
-                false
-            }
-
-            TextUtils.isEmpty(binding.lastNameET.text.toString().trim{it <= ' '})->{
-                showErrorSnackBar(resources.getString(R.string.err_msg_enter_last_name), true)
-                false
-            }
-
-            TextUtils.isEmpty(binding.emailET.text.toString().trim{it <= ' '})->{
-                showErrorSnackBar(resources.getString(R.string.
-                err_msg_enter_email), true)
-                false
-            }else ->{
-                showErrorSnackBar(resources.getString(R.string.register), false)
-                true
-            }
+    private fun validateData() {
+        //get data
+        email = binding.emailET.text.toString().trim()
+        password = binding.passwordET.text.toString().trim()
+        //validate data
+        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            //invalid format
+            binding.emailET.error = "Invalid email"
         }
-    }
-
-    private fun registerUser(){
-        //check with validate function if the entries are valid or not
-        if(validateRegisterDetails()){
-            //Show Progress With A TextView
-            showProgressDialog(resources.getString(R.string.please_wait))
-
-            val email: String = binding.emailET.text.toString().trim{it <= ' '}
-            val password: String = binding.passwordET.text.toString().trim{it <= ' '}
-
-            //Create an instance and create a register a user with email and password
-            FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(
-                    OnCompleteListener<AuthResult> {task ->
-
-                        //if the register is successful
-                        if (task.isSuccessful){
-
-
-                            //firebase registered user
-                            val firebaseUser: FirebaseUser = task.result!!.user!!
-
-
-                            val user = User(
-                                firebaseUser.uid,
-                                binding.firstNameET.text.toString().trim{it <= ' '},
-                                binding.lastNameET.text.toString().trim{it <= ' '},
-                                binding.emailET.text.toString().trim{it <= ' '}
-                            )
-
-                            FireStoreClass().registerUser(this, user)
-
-                            //Send Them to Sign In to Login Again ! Beautiful
-//                            FirebaseAuth.getInstance().signOut()
-//                            finish()
-                        }else{
-                            hideProgressDialog()
-                            //if the registration is not successful then show error message
-
-                            showErrorSnackBar(task.exception!!.message.toString(), true)
-                        }
-                    }
-                )
+        else if(TextUtils.isEmpty(password)){
+            //invalid format
+            binding.passwordET.error = "Please enter password"
         }
+        else if(password.length <6){
+            //password length 6 char
+            binding.passwordET.error = "Password must be atleast 6 characters long"
+        }
+        else{
+            //data is valid, sign up
+            firebaseSignUp()
+        }
+
+
+
     }
 
-    fun userRegistrationSuccess() {
-        //first i want to run the function in the background so we need progresss dialog
-        hideProgressDialog()
+    private fun firebaseSignUp() {
+        //show progress
+       showProgressDialog("Please wait")
 
-        Toast.makeText(
-            this,
-            resources.getString(R.string.register_success),
-            Toast.LENGTH_SHORT
-        ).show()
+        //create account
+        firebaseAuth.createUserWithEmailAndPassword(email, password)
+            .addOnSuccessListener {
+                //signup success
+                hideProgressDialog()
+                //get current user
+                val firebaseUser = firebaseAuth.currentUser
+                val email = firebaseUser!!.email
+                Toast.makeText(this,"Account created with email $email", Toast.LENGTH_SHORT).show()
+
+                //open profile
+                startActivity(Intent(this,ProfileActivity::class.java))
+                finish()
+            }
+            .addOnFailureListener{e ->
+                Toast.makeText(this,"SignUp failed due to ${e.message}", Toast.LENGTH_SHORT).show()
+            }
 
     }
+
+
 }

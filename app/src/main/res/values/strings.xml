@@ -70,4 +70,5 @@
     <string name="btn_lbl_sumbit">Sumbit</string>
     <string name="email_sent_success">email sent</string>
     <string name="register_success">success</string>
+    <string name="hey_shuttle_buddy">Hey TrotroLive buddy</string>
 </resources>
