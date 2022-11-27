@@ -12,5 +12,7 @@
     <color name="info">#2F80ED</color>
     <color name="success">#27AE60</color>
     <color name="warning">#E2B93B</color>
-    <color name="red_transparent">#EB5757</color>
+    <color name="error">#EB5757</color>
+    <color name="grey">#333333</color>
+
 </resources>
