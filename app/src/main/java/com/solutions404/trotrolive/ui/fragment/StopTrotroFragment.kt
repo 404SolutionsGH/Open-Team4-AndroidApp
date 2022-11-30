@@ -5,22 +5,43 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.coroutineScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.solutions404.trotrolive.R
+import com.solutions404.trotrolive.TrotroFareApplication
+import com.solutions404.trotrolive.adapter.TrotroStopAdapter
+import com.solutions404.trotrolive.databinding.FragmentStopTrotroBinding
+import com.solutions404.trotrolive.viewModel.TrotroFareViewModel
+import com.solutions404.trotrolive.viewModel.TrotroViewModelFactory
+import kotlinx.coroutines.launch
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-
- */
 class StopTrotroFragment : Fragment() {
 
 
+    companion object {
+        var STOP_NAME = "stopName"
+    }
+
+    private var _binding: FragmentStopTrotroBinding? = null
+    private  val binding get() = _binding!!
+    private lateinit var recyclerView: RecyclerView
+
+    private lateinit var stopName: String
+
+    private val viewModel: TrotroFareViewModel by activityViewModels {
+        TrotroViewModelFactory(
+            (activity?.application as TrotroFareApplication).database.trotroDao()
+        )
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+            stopName = it.getString(STOP_NAME).toString()
         }
     }
 
@@ -29,26 +50,29 @@ class StopTrotroFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_stop_trotro, container, false)
+        _binding = FragmentStopTrotroBinding.inflate(inflater, container, false)
+        val view = binding.root
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment stopTrotroFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            StopTrotroFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        recyclerView = binding.recyclerView
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        val busStopAdapter = TrotroStopAdapter({})
+        // by passing in the stop name, filtered results are returned,
+        // and tapping rows won't trigger navigation
+        recyclerView.adapter = busStopAdapter
+        lifecycle.coroutineScope.launch {
+            viewModel.trotroForStopName(stopName).collect() {
+                busStopAdapter.submitList(it)
             }
+        }
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
 }
