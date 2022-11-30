@@ -6,9 +6,15 @@ import android.content.SharedPreferences
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.WindowInsets
-import android.view.WindowManager
+import android.view.*
+import android.widget.ImageView
+import android.widget.LinearLayout
+import androidx.core.content.ContextCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.core.view.get
+import androidx.viewpager2.widget.ViewPager2
+import com.solutions404.trotrolive.R
+import com.solutions404.trotrolive.constants.OnBoardingItems.onBoardingAdapter
 import com.solutions404.trotrolive.databinding.ActivityOnboardingBinding
 
 class OnboardingActivity : Activity() {
@@ -55,5 +61,110 @@ class OnboardingActivity : Activity() {
             editor.apply()
         }
 
+        //Done
+
+        onboardingBinding.vpOnboardingSlider.adapter = onBoardingAdapter
+        setupIndicators()
+        setCurrentIndicators(0)
+        onboardingBinding.vpOnboardingSlider.registerOnPageChangeCallback(object :
+            ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                setCurrentIndicators(position)
+            }
+        })
+        //handle next button click
+        onboardingBinding.btnOnboardingNext.setOnClickListener {
+            if (onboardingBinding.vpOnboardingSlider.currentItem + 1 < onBoardingAdapter.itemCount) {
+                onboardingBinding.vpOnboardingSlider.currentItem += 1
+            } else {
+                Intent(applicationContext, AuthActivity::class.java).also {
+                    startActivity(it)
+                }
+            }
+        }
+
+        // skip the onboarding slides
+        onboardingBinding.tvStartNow.setOnClickListener {
+            Intent(applicationContext, AuthActivity::class.java).also {
+                startActivity(it)
+            }
+        }
+
+        //
+        setupSplashScreen()
+
+    }
+
+    /**
+     * setupSplashScreen
+     */
+    private fun setupSplashScreen() {
+        // keep the splash for longer period -> say checking internet status/speed/, db setup
+
+        // Set up an OnPreDrawListener to the root view.
+        val content: View = findViewById(android.R.id.content)
+        content.viewTreeObserver.addOnPreDrawListener(
+            object : ViewTreeObserver.OnPreDrawListener {
+                override fun onPreDraw(): Boolean {
+                    return if (isContentLoaded) {// Check if the initial data is ready.
+                        // The content is ready; start drawing.
+                        content.viewTreeObserver.removeOnPreDrawListener(this)
+                        true
+                    } else false  // hold on to the splash
+                }
+            }
+        )
+    }
+
+
+    private fun setupIndicators() {
+        val indicators = arrayOfNulls<ImageView>(onBoardingAdapter.itemCount)
+        val layoutParams: LinearLayout.LayoutParams =
+            LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            )
+
+        layoutParams.setMargins(8, 0, 8, 0)
+        for (i in indicators.indices) {
+            indicators[i] = ImageView(applicationContext)
+            indicators[i].apply {
+                this?.setImageDrawable(
+                    ContextCompat.getDrawable(
+                        applicationContext,
+                        R.drawable.indicator_inactive_onboarding
+                    )
+                )
+                this?.layoutParams = layoutParams
+            }
+            onboardingBinding.llOnboardingIndicators.addView(indicators[i])
+
+        }
+    }
+
+    /**
+     *
+     */
+    private fun setCurrentIndicators(index: Int) {
+        val childCount = onboardingBinding.llOnboardingIndicators.childCount
+        for (i in 0 until childCount) {
+            val imageView = onboardingBinding.llOnboardingIndicators[i] as ImageView
+            if (i == index) {
+                imageView.setImageDrawable(
+                    ContextCompat.getDrawable(
+                        applicationContext,
+                        R.drawable.indicator_active_onboarding
+                    )
+                )
+            } else {
+                imageView.setImageDrawable(
+                    ContextCompat.getDrawable(
+                        applicationContext,
+                        R.drawable.indicator_inactive_onboarding
+                    )
+                )
+            }
+        }
     }
 }

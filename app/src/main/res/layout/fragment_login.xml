@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".LoginFragment">
+
+
+
+    <!-- trotro logo-->
+
+    <!-- prompt textView-->
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="160dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="30dp"
+        android:contentDescription="@string/ispace_community_logo"
+        android:src="@drawable/icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView"
+        style="@style/PromptText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/login_to_your_account" />
+
+
+    <!-- centered linear layout for login fields-->
+    <LinearLayout
+        android:id="@+id/actionsLL"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5"
+        android:gravity="center">
+
+        <!--email editText-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailTIL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:hint="@string/email"
+            app:boxBackgroundColor="@null">
+
+            <EditText
+                android:id="@+id/emailET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter"
+                android:inputType="textEmailAddress"
+                android:paddingBottom="5dp"
+                android:textSize="17sp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--password editText-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordTIL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="30dp"
+            app:boxBackgroundColor="@null"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/primary">
+            <!--password editText-->
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:paddingBottom="5dp"
+                android:textSize="17sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--forgot password prompt-->
+        <TextView
+            android:id="@+id/forgotPasswordTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="30dp"
+            android:layout_gravity="start"
+            android:text="@string/forgot_your_password"
+            android:fontFamily="@font/inter"
+            android:textFontWeight="600"
+            tools:targetApi="p"
+            android:textSize="13sp"/>
+
+        <!--login button-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/loginBn"
+            style="@style/ButtonText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cornerRadius="10dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="50dp"
+            android:text="@string/login" />
+
+        <!--signUp prompt-->
+        <TextView
+            android:id="@+id/signUpPromptTV"
+            android:fontFamily="@font/inter"
+            android:textColor="@color/primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/dont_have_an_account"
+            android:textFontWeight="600"
+            android:textSize="13sp"
+            tools:targetApi="p" />
+    </LinearLayout>
+
+    <!--skip login to dash-->
+    <TextView
+        android:id="@+id/skipLoginTV"
+        style="@style/PromptText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter"
+        android:text="@string/login_later"
+        android:textColor="@color/primary"
+        android:textFontWeight="800"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="15dp"
+        tools:targetApi="p" />
+
+</FrameLayout>
