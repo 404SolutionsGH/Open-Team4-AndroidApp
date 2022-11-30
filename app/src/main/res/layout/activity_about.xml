@@ -28,7 +28,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ShuttleDrive v1.0"
+            android:text="Trotro v1.0"
             style="@style/TextAppearance.AppCompat.Caption"
             android:fontFamily="@font/inter"
             android:layout_gravity="center"/>
@@ -48,7 +48,7 @@
             android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="iSpace Bootcamp 2.0"
+            android:text="Andela Pluralsight Community Project"
             style="@style/TextAppearance.AppCompat.Caption"
             android:fontFamily="@font/inter"
             android:layout_gravity="center"/>

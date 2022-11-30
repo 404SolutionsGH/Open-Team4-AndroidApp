@@ -84,6 +84,28 @@ class HomeActivity : AppCompatActivity() {
             }
         }
 
+        //switching activity with drawer
+        binding.navView.setNavigationItemSelectedListener {
+            it.isChecked = true
+
+            when(it.itemId){
+//                R.id.home-> {val intent = Intent(this, MainActivity::class.java)
+//                    startActivity(intent)}
+                R.id.ticket-> {val intent = Intent(this, TicketActivity::class.java)
+                    startActivity(intent)}
+                R.id.about-> {val intent = Intent(this, AboutActivity::class.java)
+                    startActivity(intent)}
+                R.id.cart-> {val intent = Intent(this, CartActivity::class.java)
+                    startActivity(intent)}
+                R.id.profile-> {val intent = Intent(this, ProfileActivity::class.java)
+                    startActivity(intent)}
+                R.id.feedback-> {val intent = Intent(this, FeedbackActivity::class.java)
+                    startActivity(intent)}
+            }
+
+            true
+        }
+
     }
 
     private fun updateJourney(myCalendar: Calendar) {
