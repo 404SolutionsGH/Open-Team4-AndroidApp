@@ -17,4 +17,8 @@ interface TrotroDao{
     @Query("SELECT * FROM trotro WHERE station_name = :stopName ORDER BY fare_ghs ASC")
     fun getByStopName(stopName: String): kotlinx.coroutines.flow.Flow<List<Trotro>>
 
+
+    @Query("SELECT * FROM trotro WHERE station_name = :staionName ORDER BY fare_ghs ASC")
+    fun getStationName(staionName: String): kotlinx.coroutines.flow.Flow<List<Trotro>>
+
 }
