@@ -19,11 +19,6 @@ import com.solutions404.trotrolive.viewModel.TrotroFareViewModel
 import com.solutions404.trotrolive.viewModel.TrotroViewModelFactory
 import kotlinx.coroutines.launch
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
 
 class FullTrotroFragment : Fragment() {
 
@@ -54,14 +49,12 @@ class FullTrotroFragment : Fragment() {
         recyclerView = binding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        val trotroStopAdater = TrotroStopAdapter(
-            {
-                val action = FullTrotroFragmentDirections.
-                actionFullTrotroFragmentToStopTrotroFragment(
-                    stopName = it.stopName
-                )
-                view.findNavController().navigate(action)
-            })
+        val trotroStopAdater = TrotroStopAdapter {
+            val action = FullTrotroFragmentDirections.actionFullTrotroFragmentToStopTrotroFragment(
+                stopName = it.stopName
+            )
+            view.findNavController().navigate(action)
+        }
         recyclerView.adapter = trotroStopAdater
         lifecycle.coroutineScope.launch {
             viewModel.fullTrotro().collect() {
@@ -70,4 +63,12 @@ class FullTrotroFragment : Fragment() {
         }
     }
 
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+
 }
+
