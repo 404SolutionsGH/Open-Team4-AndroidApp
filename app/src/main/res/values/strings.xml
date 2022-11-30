@@ -30,4 +30,7 @@
     <string name="booking">Booking</string>
     <string name="brand_icon">brand icon</string>
     <string name="user_profile_image">user profile image</string>
+    <string name="trotro_station_header">trotro station</string>
+    <string name="trotro_stop">trotro stop</string>
+    <string name="trotro_fare">TrotroFare</string>
 </resources>

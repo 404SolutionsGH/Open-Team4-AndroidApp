@@ -1,4 +1,4 @@
-package com.solutions404.trotrolive
+package com.solutions404.trotrolive.ui.fragment
 
 import android.app.ProgressDialog
 import android.os.Bundle
@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import com.google.firebase.auth.FirebaseAuth
+import com.solutions404.trotrolive.R
 import com.solutions404.trotrolive.databinding.FragmentLoginBinding
 
 

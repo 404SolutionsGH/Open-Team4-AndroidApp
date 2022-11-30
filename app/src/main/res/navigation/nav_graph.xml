@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fullTrotroFragment">
+
+    <fragment
+        android:id="@+id/fullTrotroFragment"
+        android:name="com.solutions404.trotrolive.ui.fragment.FullTrotroFragment"
+        android:label="fragment_full_trotro"
+        tools:layout="@layout/fragment_full_trotro" >
+        <action
+            android:id="@+id/action_fullTrotroFragment_to_stopTrotroFragment"
+            app:destination="@id/stopTrotroFragment" />
+        <action
+            android:id="@+id/action_fullTrotroFragment_to_stationTrotroFragment"
+            app:destination="@id/stationTrotroFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/stopTrotroFragment"
+        android:name="com.solutions404.trotrolive.ui.fragment.StopTrotroFragment"
+        android:label="fragment_stop_trotro"
+        tools:layout="@layout/fragment_stop_trotro" >
+        <argument
+            android:name="stopName"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/stationTrotroFragment"
+        android:name="com.solutions404.trotrolive.ui.fragment.stationTrotroFragment"
+        android:label="fragment_station_trotro"
+        tools:layout="@layout/fragment_station_trotro" >
+        <argument
+            android:name="stationName"
+            app:argType="string" />
+    </fragment>
+</navigation>

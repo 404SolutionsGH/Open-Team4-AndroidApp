@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragment.FullTrotroFragment"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/trotro_station"
+        android:layout_width="88dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="88dp"
+        android:gravity="center_horizontal"
+        android:padding="8dp"
+        android:text="@string/trotro_station_header"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/trotro_stop"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:gravity="center_horizontal"
+        android:padding="8dp"
+        android:text="@string/trotro_stop"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/trotro_station"
+        app:layout_constraintStart_toEndOf="@+id/trotro_station"
+        app:layout_constraintTop_toTopOf="@+id/trotro_station" />
+
+
+    <TextView
+        android:id="@+id/trotro_fare"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:gravity="center_horizontal"
+        android:padding="8dp"
+        android:text="@string/trotro_fare"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/trotro_station"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/trotro_stop"
+        app:layout_constraintTop_toTopOf="@+id/trotro_station" />
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:layout_constraintTop_toBottomOf="@id/trotro_fare"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
