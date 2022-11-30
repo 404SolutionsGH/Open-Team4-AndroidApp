@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "835096204777",
+    "project_id": "trotrolivegh",
+    "storage_bucket": "trotrolivegh.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:835096204777:android:9735a53503e1f3daf4e778",
+        "android_client_info": {
+          "package_name": "com.solutions404.trotrolive"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "835096204777-96aoch2foud9ale62vtjjddh44t6nkk5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAex1BdLtTrW-sEsVntK5js6det2xiSsI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "835096204777-96aoch2foud9ale62vtjjddh44t6nkk5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

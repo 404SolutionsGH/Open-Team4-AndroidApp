@@ -33,4 +33,9 @@
     <string name="trotro_station_header">trotro station</string>
     <string name="trotro_stop">trotro stop</string>
     <string name="trotro_fare">TrotroFare</string>
+    <string name="err_msg_email">error</string>
+    <string name="err_msg_invalid_email">invalid email</string>
+    <string name="err_msg_pass">password error</string>
+    <string name="err_msg_pass_match">password mismatch</string>
+    <string name="err_msg_pass_short">password too short</string>
 </resources>

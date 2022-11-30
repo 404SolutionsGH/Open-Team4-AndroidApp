@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/stationTrotroFragment"
-        android:name="com.solutions404.trotrolive.ui.fragment.stationTrotroFragment"
+        android:name="com.solutions404.trotrolive.ui.fragment.StationTrotroFragment"
         android:label="fragment_station_trotro"
         tools:layout="@layout/fragment_station_trotro" >
         <argument

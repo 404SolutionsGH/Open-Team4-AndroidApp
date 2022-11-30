@@ -11,24 +11,24 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.solutions404.trotrolive.TrotroFareApplication
 import com.solutions404.trotrolive.adapter.TrotroStopAdapter
-import com.solutions404.trotrolive.databinding.FragmentStopTrotroBinding
+import com.solutions404.trotrolive.databinding.FragmentStationTrotroBinding
 import com.solutions404.trotrolive.viewModel.TrotroFareViewModel
 import com.solutions404.trotrolive.viewModel.TrotroViewModelFactory
 import kotlinx.coroutines.launch
 
 
-class StopTrotroFragment : Fragment() {
-
+class StationTrotroFragment : Fragment() {
 
     companion object {
-        var STOP_NAME = "stopName"
+        var STATION_NAME = "stationName"
     }
 
-    private var _binding: FragmentStopTrotroBinding? = null
+    private var _binding: FragmentStationTrotroBinding?= null
+
     private  val binding get() = _binding!!
     private lateinit var recyclerView: RecyclerView
 
-    private lateinit var stopName: String
+    private lateinit var stationName: String
 
     private val viewModel: TrotroFareViewModel by activityViewModels {
         TrotroViewModelFactory(
@@ -38,9 +38,8 @@ class StopTrotroFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         arguments?.let {
-            stopName = it.getString(STOP_NAME).toString()
+            stationName = it.getString(StationTrotroFragment.STATION_NAME).toString()
         }
     }
 
@@ -49,10 +48,11 @@ class StopTrotroFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentStopTrotroBinding.inflate(inflater, container, false)
+        _binding = FragmentStationTrotroBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -63,7 +63,7 @@ class StopTrotroFragment : Fragment() {
         // and tapping rows won't trigger navigation
         recyclerView.adapter = trotroStopAdapter
         lifecycle.coroutineScope.launch {
-            viewModel.trotroForStopName(stopName).collect() {
+            viewModel.trotroForStationName(stationName).collect() {
                 trotroStopAdapter.submitList(it)
             }
         }
@@ -73,5 +73,6 @@ class StopTrotroFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 
 }

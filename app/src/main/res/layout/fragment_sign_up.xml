@@ -1,14 +1,319 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUpFragment">
+    tools:context=".ui.fragment.SignUpFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <!-- Trotro logo-->
+    <ImageView
+        android:id="@+id/logoIV"
+        android:layout_width="160dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="30dp"
+        android:contentDescription="@string/ispace_community_logo"
+        android:src="@drawable/icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        android:orientation="vertical"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/skipRegisterTV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logoIV">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="100dp"
+            app:layout_constraintVertical_chainStyle="spread_inside">
+
+            <!-- prompt textView-->
+            <TextView
+                android:id="@+id/joinTV"
+                style="@style/PromptText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/join_the_community"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <FrameLayout
+                android:id="@+id/profilePicFrame"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_marginTop="40dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/joinTV">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:layout_gravity="center"
+                    app:cardBackgroundColor="@color/primary"
+                    app:cardCornerRadius="100dp">
+
+                    <ImageView
+                        android:id="@+id/profilePicIV"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/profile_picture"/>
+
+                    <ImageView
+                        android:id="@+id/addProfilePicIV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/cam" />
+                </androidx.cardview.widget.CardView>
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/signUpPromptTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter"
+                android:text="@string/set_profile_image"
+                android:textColor="@color/primary"
+                android:textFontWeight="600"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profilePicFrame"
+                tools:targetApi="p" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/firstNameTIL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="30dp"
+                android:hint="@string/first_name"
+                app:boxBackgroundColor="@null"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/signUpPromptTV">
+
+                <EditText
+                    android:id="@+id/firstNameET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter"
+                    android:inputType="textPersonName"
+                    android:paddingBottom="5dp"
+                    android:textSize="17sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/lastNameTIL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="15dp"
+                android:hint="@string/last_name"
+                app:boxBackgroundColor="@null"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/firstNameTIL">
+
+                <EditText
+                    android:id="@+id/lastNameET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter"
+                    android:inputType="textPersonName"
+                    android:paddingBottom="5dp"
+                    android:textSize="17sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/emailTIL_"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="15dp"
+                android:hint="@string/email"
+                app:boxBackgroundColor="@null"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lastNameTIL">
+
+                <EditText
+                    android:id="@+id/emailET_"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter"
+                    android:inputType="textEmailAddress"
+                    android:paddingBottom="5dp"
+                    android:textSize="17sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/phoneTIL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="15dp"
+                android:hint="@string/phone_number"
+                app:boxBackgroundColor="@null"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/emailTIL_">
+
+                <EditText
+                    android:id="@+id/phoneET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter"
+                    android:inputType="phone"
+                    android:paddingBottom="5dp"
+                    android:textSize="17sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--password editText-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/passwordTIL_"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="15dp"
+                app:boxBackgroundColor="@null"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/phoneTIL"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/primary">
+                <!--password editText-->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/passwordET_"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter"
+                    android:hint="@string/password"
+                    android:inputType="textPassword"
+                    android:paddingBottom="5dp"
+                    android:textSize="17sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--password editText-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/confirmPasswordTIL_"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="15dp"
+                app:boxBackgroundColor="@null"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/passwordTIL_"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/primary">
+                <!--password editText-->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/confirmPasswordET_"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter"
+                    android:hint="@string/confirm_password"
+                    android:inputType="textPassword"
+                    android:paddingBottom="5dp"
+                    android:textSize="17sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/addStartupTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:fontFamily="@font/inter"
+                android:text="@string/add_startup_optional"
+                android:textColor="@color/primary"
+                android:textFontWeight="600"
+                android:textSize="13sp"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/confirmPasswordTIL_"
+                app:layout_constraintTop_toBottomOf="@+id/confirmPasswordTIL_"
+                tools:targetApi="p" />
+
+            <ListView
+                android:id="@+id/startupLV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/addStartupTV"
+                tools:listitem="@layout/startup_item" />
+
+            <!--login button-->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/signUpBn_"
+                style="@style/ButtonText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="50dp"
+                android:text="@string/register"
+                app:cornerRadius="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/startupLV" />
+
+            <!--signUp prompt-->
+            <TextView
+                android:id="@+id/loginPromptTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/inter"
+                android:text="@string/already_have_an_account_login"
+                android:textColor="@color/primary"
+                android:textFontWeight="600"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/signUpBn_"
+                tools:targetApi="p" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <!--skip signUp to dash-->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/skipRegisterTV"
+        style="@style/PromptText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="@font/inter"
+        android:text="@string/register_later"
+        android:textColor="@color/primary"
+        android:textFontWeight="800"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:targetApi="p" />
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
