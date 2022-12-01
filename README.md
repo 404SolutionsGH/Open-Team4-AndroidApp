@@ -23,3 +23,8 @@ Issues With This app
 1. On some phones more API 27, The onboarding screen textView dont appear. 
 2. Payment Screen breaks for no reason, I am still investigating 
 3. its uses intent to nagivate screen which old approach. Some of these issues were addressed on GrandeFinaleWorking Branch 
+
+
+
+The Solutions to the New Solutions On the GrandeFinaleWorking branch 
+i tried with the Architure component to achieve same tasks with different approach
