@@ -10,6 +10,9 @@ As android incoming AAD i used Activities Only in this branch.
 I used BaseActivity for Authentication. so codes like Dialog, Snackbar, Progress Dialog and other features common between screens are coded once in the base Activity and other Activities inherit it instead of Appcompativity. Which is already in the BaseActivity.
 
 
+Download APK HERE and TRY it -https://drive.google.com/drive/folders/1FSb9xdOpVntasEngP1aFC1rYZw-6zjWJ?usp=share_link
+
+
 TECHNOLOGY used in this project
 
 1. Constraints Layout
