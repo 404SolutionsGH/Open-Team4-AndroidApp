@@ -2,6 +2,8 @@
 
 In Ghana and neighboring countries, tro tro are privately owned minibus share taxis that travel fixed routes leaving when filled to capacity. While there are tro tro stations, these vehicles for hire can also be boarded anywhere along the route.
 
+![](https://github.com/404SolutionsGH/Open-Team4-AndroidApp/blob/main/onboard1.png)
+
 # The Idea
 
 ## The Problem
@@ -26,6 +28,10 @@ passengers and drivers.
 conductors.
 6. Refactor the industry via local government
 and other trotro agencies.
+
+
+![](https://github.com/404SolutionsGH/Open-Team4-AndroidApp/blob/main/login.png)
+![](https://github.com/404SolutionsGH/Open-Team4-AndroidApp/blob/main/signUo.png)
 
 ## How It Works
 
