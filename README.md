@@ -28,3 +28,7 @@ Issues With This app
 
 The Solutions to the New Solutions On the GrandeFinaleWorking branch 
 i tried with the Architure component to achieve same tasks with different approach
+1. I used Navigation Compnent to avoid the uses of too much INTENTS
+2. i also used fragment and activites with findNavController
+3. Data Persistance - I saved create a Room database on the branch 
+4. The App crash for no reason on the GrandeFInaleWorking branch i still working on it 
