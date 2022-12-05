@@ -4,6 +4,9 @@ In Ghana and neighboring countries, tro tro are privately owned minibus share ta
 
 ![](https://github.com/404SolutionsGH/Open-Team4-AndroidApp/blob/main/onboard1.png)
 
+BACKEND BUILT IN PYTHON DJANGO - HERE 
+https://github.com/404SolutionsGH/bf-TrotroliveGoogleOpenTeam4
+
 # The Idea
 
 ## The Problem
